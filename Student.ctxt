@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Student
+comment0.text=\r\n\ A\ class\ to\ model\ a\ student\r\n\r\n\ @author\ Nick\ Coyle\r\n\ @version\ 11/27/2018\r\n
+comment1.params=id\ name\ email
+comment1.target=Student(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=id
+comment2.target=boolean\ isValidId(java.lang.String)
+comment2.text=\ \r\n\ A\ method\ to\ check\ if\ the\ id\ is\ valid.\ For\ a\ Student,\ it\ should\ be\ 9\ digits.\r\n\ \r\n\ @params\ id\:\ String\ the\ id\ to\ check\r\n\ \r\n\ @return\ boolean\ if\ the\ id\ is\ valid\r\n
+comment3.params=courseName\ courseGrade
+comment3.target=void\ courseCompletion(java.lang.String,\ double)
+comment3.text=\r\n\ A\ method\ to\ add\ a\ course\ to\ the\ coursesTaken\ array\ field\r\n\ \r\n\ @params\ courseName\:\ String\ the\ name\ of\ the\ course\ that\ was\ completed\ and\ courseGrade\:\ double\ the\ grade\ earned\ for\ the\ course\r\n
+comment4.params=
+comment4.target=double\ getAverageGrade()
+comment4.text=\r\n\ A\ method\ to\ get\ the\ average\ grade\ for\ all\ courses\ in\ the\ coursesTaken\ array\r\n\ \r\n\ @return\ the\ average\ grade\:\ double\r\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ A\ method\ to\ print\ the\ student\ fields\r\n
+comment6.params=
+comment6.target=void\ test()
+comment6.text=\r\n\ A\ static\ test\ method\r\n
+numComments=7
