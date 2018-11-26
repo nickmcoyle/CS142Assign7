@@ -34,16 +34,18 @@ public class Student extends Person
     }
 
     /**
-     * A method to add a course to the coursesTaken array field
+     * A method to add a course to the coursesTaken array field. The grade cannot be less than 0 or more than 4.0.
      * 
      * @params courseName: String the name of the course that was completed and courseGrade: double the grade earned for the course
      */
-    public void courseCompletion(String courseName, double courseGrade) {
-        if(courseGrade > 1.0 && courseGrade <= 4.0) {
-            coursesTaken[nextCourseIndex] = courseName;
-            courseGrades[nextCourseIndex] = courseGrade;
-            ++nextCourseIndex;
+    public void courseCompletion(String courseName, double courseGrade) throws ArrayIndexOutOfBoundsException {
+        if(courseGrade < 0.0 || courseGrade > 4.0) {
+            throw new IllegalArgumentException("Error: CourseGrade must be between 0.0 and 4.0");            
         }
+        
+        coursesTaken[nextCourseIndex] = courseName;
+        courseGrades[nextCourseIndex] = courseGrade;
+        ++nextCourseIndex;
     }
 
     /**
@@ -97,8 +99,19 @@ public class Student extends Person
         if(!s2.getId().equals("123456789")) System.out.println("Error: student getId() should be 123456789 but is " + s2.getId());
         if(!s2.getEmail().equals("dr.pepper@gmail.com")) System.out.println("Error: student email should be dr.pepper@gmail.com but is " + s2.getEmail());
         if(s2.getAverageGrade() != 0.0) System.out.println("Error: student avg grade should be 0.0 but is " + s2.getAverageGrade());
-        //if() System.out.println("Error: ");
-        //if() System.out.println("Error: ");
+        //s2.courseCompletion("Fake", 5.0); //throws IAE
+        //s2.courseCompletion("Fake II", -1.0); //throws IAE
+        //s2.courseCompletion("Fake", 4.00000000000001); //thows IAE
+        //s2.courseCompletion("Fake II", -0.0); //throws IAE
+        if(s2.nextCourseIndex != 0) System.out.println("Error: courses taken should still be 0 but is " + s2.nextCourseIndex);
+        s2.courseCompletion("Fake", 4.000000000000);
+        s2.courseCompletion("Fake II", 1.00000);
+        if(s2.nextCourseIndex != 2) System.out.println("Error: courses taken should be 2 but is " + s2.nextCourseIndex);
+        if(s2.getAverageGrade() != 2.5) System.out.println("Error: average grade should be 2.5 but is " + s2.getAverageGrade());
+        s2.courseCompletion("Fake", 3.0000000);
+        s2.courseCompletion("Fake II", 2.70000);
+        if(s2.nextCourseIndex != 4) System.out.println("Error: courses taken should be 4 but is " + s2.nextCourseIndex);
+        if(s2.getAverageGrade() != 2.675) System.out.println("Error: average grade should be 2.675 but is " + s2.getAverageGrade());
     }
 
 }
